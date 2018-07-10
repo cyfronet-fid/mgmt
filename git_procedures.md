@@ -18,7 +18,15 @@ remember hashtags huh? `#111`. Save the file and close the editor.
 1. Open your favorite IDE and resolve conflicts. Do not commit. 
 In RubyMine you simply select a project, right click on it and go to `Git>Resolve Conflicts`
 1. Finish rebase by typing `git rebase --continue`
-1. Force push your new branch with the beutifully squashed commit `git push -f`
+1. Force push your new branch with the beutifully squashed commit `git push --force-with-lease `
 1. Congratulations! As soon as the Travis-CI build finishes the build yo are ready to merge 
 by clicking `Rebase and merge` in GitHub
+
+##### Useful information
+
+1. Shorthand for rabase in merge base 
+> git rebase -i \`git merge-base master HEAD\` 
+2. Aborting rebase
+> git rebase --abort
+
 
