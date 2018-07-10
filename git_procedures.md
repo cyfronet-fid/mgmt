@@ -5,8 +5,8 @@
 
 
 1. Checkout master branch and pull  `git checkout master` `git pull` 
-1. Checkout your branch (and pull)  `git checkout pr-branch` `git pull` 
-1. Find id of the first commit from your branch (let's call it `squash_commit_id`) `git log master..pr-branch --oneline | tail -1`
+1. Checkout your branch (and pull)  `git checkout pr_branch` `git pull` 
+1. Find id of the first commit from your branch (let's call it `squash_commit_id`) `git merge-base master HEAD` or  `git merge-base master pr_branch`
 1. Run interactive squash: `git rebase -i squash_commit_id`. Git opens an editor allowing
 for interactive commit squash.  
 1. Pick `squash` command for all the commits other than our `squash_commit_id`. 
@@ -21,3 +21,4 @@ In RubyMine you simply select a project, right click on it and go to `Git>Resolv
 1. Force push your new branch with the beutifully squashed commit `git push -f`
 1. Congratulations! As soon as the Travis-CI build finishes the build yo are ready to merge 
 by clicking `Rebase and merge` in GitHub
+
