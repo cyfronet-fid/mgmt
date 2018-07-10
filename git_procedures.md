@@ -1,5 +1,15 @@
 ## Git repositories HOW TO
 
+#### Pull request procedure
+1. Create Pull Request
+1. Organize your commit messages by squashing unnecessary commit stages. Rewrite misleading messages
+1. Resolve conflicts if they appear (you may avoid them/prepare to resolve them 
+earlier if you rebase to the master branch first)
+1. Wait for Travis-CI to build your Pull Request. 
+Travis will emulate merge before it happens and build merged code (see 
+[details](https://docs.travis-ci.com/user/pull-requests/#How-Pull-Requests-are-Built))
+1. Merge your branch into master branch
+
 
 #### Rebasing branches to master branch
 
