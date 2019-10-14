@@ -1,6 +1,6 @@
 ### Development 
 
-1. Create new branch from **base branch** (`master`) and name it  `<ticket id>-<your branch name>`
+1. Create a new branch from **base branch** (`master`) and name it  `<ticket id>-<your branch name>`
 1. Do your development and write `CHANGELOG.md` entry 
 1. Create Pull Request 
    * Describe your changes. Use magic tags like `fixes <ticket id>` 
