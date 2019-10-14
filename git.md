@@ -20,7 +20,7 @@
 
 ### Production deployment 
 
-1. When the Release phase is complete a PR to `production` branch is merged when the released version is deployed to production
+1. The PR from `<a>.<b>.x` to `production` branch is merged once the released version is deployed to production
    
 ### Fixes 
 
