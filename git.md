@@ -17,7 +17,10 @@
    * we treat deployment of this branch as a test deployment for the release candidate 
 1. Release is performed by _@wojt_
    * An appropriate `<a>.<b>.<c>` tag is added in `<a>.<b>.x` branch 
-   * PR to `production` branch is merged when the released version is deployed to production
+
+### Production deployment 
+
+1. When the Release phase is complete a PR to `production` branch is merged when the released version is deployed to production
    
 ### Fixes 
 
