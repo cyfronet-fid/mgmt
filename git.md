@@ -29,3 +29,4 @@ Fixes are following basically the same set of rules that Development and Resease
 1. **Base branch** is `<a>.<b>.x`
 1. When a release is performed and `<a>.<b>.<c>` tag is created _@wojt_ creates a PR from `<a>.<b>.x` to `master`
 1. The _Developer_ resolves conflicts and merges `<a>.<b>.x` to `master` (watching `CHANGELOG.md`)
+ 
