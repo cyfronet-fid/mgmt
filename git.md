@@ -13,25 +13,29 @@
 ### <a name="release"></a>Release
 
 1. When changes in the **base branch** (`master`) are ready to be released _@wojt_
-   creates branch version `<a>.<b>.0` originating form the `master` branch. This
+   creates branch version `<a>.<b>.x` originating form the `master` branch. This
    branch is called **release candidate branch**.
 1. Into the **base branch** branch next development features can be merged
    (these changes will not be release in described release).
 1. **release candidate branch** is automatically build and can be used to test release candidate
 1. When some problems are discovered in **release candidate branch** fixes are
-   done similar like described in [Fixes Development](#fixes-development) section
-   with one modification: **base branch** is `<a>.<b>.0`.
+   done similar like described in [Fixes Development](#fixes-development) section.
 1. When everyting is OK, _@wojt_ runs script/github action which is performing following steps:
-   * Unreleased section header is renamed into `[<a>.<b>.0] <release_date>`.
-     This change is commited to `<a>.<b>.0` branch with `<a>.<b>.0 release` message.
-   * An appropriate `<a>.<b>.0` tag is added for last commit in `<a>.<b>.0` branch
-   * github `<a>.<b>.0` release is creted via github API
+   * **Version** is calculated using following algorithm:
+     * Find all tags with following pattern `<a>.<b>.<anything>`
+     * If no maching branch is found version is set to `<a>.<b>.0`
+     * If maching branches are found version is set to `<a>.<b>.<MAX(anything) + 1>`
+   * Unreleased section header in `CHANGELOG.md` is renamed into
+    `[<version>] <release_date>`, content of `VERSION` file is changed to
+    **version**. These changes are commited to `<a>.<b>.x` branch with `<version> release` message.
+   * An appropriate `<version>` tag is added for last commit in `<a>.<b>.x` branch
+   * github `<version>` release is creted via github API
    * `Unreleased` template is added to `CHANGELOG.md`. This change is commited to
-     `<a>.<b>.0` branch with `Next development cycle` message.
-   * Pull Request from `<a>.<b>.0` branch to `master` is created
+     `<a>.<b>.x` branch with `Next development cycle` message.
+   * Pull Request from `<a>.<b>.x` branch to `master` is created
    * Notification about new release is sent to email/slack/etc.
-1. The _Developer_ resolves conflicts and merges `<a>.<b>.0` to `master` (watching `CHANGELOG.md`)
-1. `<a>.<b>.0` branch is removed from github
+1. The _Developer_ resolves conflicts and merges `<a>.<b>.x` to `master` (watching `CHANGELOG.md`)
+1. `<a>.<b>.x` branch is **not** removed from github
 
 ### Production deployment
 
@@ -63,8 +67,4 @@ Fix release is following basically the same set of rules that
 [Resease](#release) phase with following modifications:
 
 1. **release candidate branch** is `<a>.<b>.x`.
-1. When a release is performed by the script `<a>.<b>.<c>`  tag is created
-   (`<c>` is `<pre-c + 1>` calculated from latest `<a>.<b>.<prev-c>` tag)
-1. `<a>.<b>.x` is **not** removed until next feature ritch version is not pushed
-   to production.
 
